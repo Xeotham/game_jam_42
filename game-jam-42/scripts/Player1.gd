@@ -2,10 +2,15 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -300.0
+
+@onready var camera = $Camera2D as Camera2D
 
 func _ready() -> void:
 	$MultiplayerSynchronizer.set_multiplayer_authority(1)
+	if multiplayer.get_unique_id() == 1:
+		camera.make_current()
+	
 
 func _physics_process(delta: float) -> void:
 	if $MultiplayerSynchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
