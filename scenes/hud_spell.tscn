@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://4lkndko8xnkv"]
+[gd_scene load_steps=3 format=3 uid="uid://4lkndko8xnkv"]
 
-[ext_resource type="Script" uid="uid://way1k2ks0d0o" path="res://hud_spell.gd" id="1_bqjum"]
-[ext_resource type="Script" path="res://spell_bar.gd" id="2_woe7e"]
+[ext_resource type="Script" uid="uid://kr07gup5lggx" path="res://scripts/spell_bar.gd" id="1_chyek"]
 [ext_resource type="PackedScene" uid="uid://caomud01uxhsp" path="res://scenes/spell_button.tscn" id="3_g7eet"]
 
 [node name="HUDspell" type="Control"]
@@ -11,7 +10,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bqjum")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -33,7 +31,7 @@ offset_top = -40.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("2_woe7e")
+script = ExtResource("1_chyek")
 
 [node name="SpellButton" parent="SpellBar" instance=ExtResource("3_g7eet")]
 layout_mode = 2

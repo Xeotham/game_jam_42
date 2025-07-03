@@ -59,10 +59,10 @@ tile_map_data = PackedByteArray("AAAEAAIAAAAAAAAAAAAFAAIAAAABAAAAAAAJAAIAAAABAAA
 tile_set = SubResource("TileSet_vcsse")
 
 [node name="HUDspell" parent="." instance=ExtResource("3_kewym")]
-offset_left = 200.906
-offset_top = 198.302
-offset_right = 200.906
-offset_bottom = 198.302
+offset_left = 205.578
+offset_top = 192.518
+offset_right = 205.578
+offset_bottom = 192.518
 scale = Vector2(1.19734, 1.17323)
 size_flags_horizontal = 8
 size_flags_vertical = 8

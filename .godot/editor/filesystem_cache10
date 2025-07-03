@@ -1,0 +1,17 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1751531681
+icon.svg::CompressedTexture2D/CompressedTexture2D::711811487574087307::1751529244::1751529307::1::::<><><>0<>0<>8e66e5a42215e5bed37ad6fa871dc3f1<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://assets/::1751529307
+sprite.png::CompressedTexture2D/CompressedTexture2D::843483349916460821::1751529244::1751529307::1::::<><><>0<>0<>cb3d8950008be4b79791235af0c25762<>res://.godot/imported/sprite.png-326bf2a42cf01374c1682f27990021a3.ctex::
+Tileset_Cave.png::CompressedTexture2D/CompressedTexture2D::2912431248145863784::1751529244::1751529307::1::::<><><>0<>0<>a5c33fa45c26f41dd160a9096258f8a9<>res://.godot/imported/Tileset_Cave.png-590332424cfc6c0d5bd32126931bc195.ctex::
+white.jpg::CompressedTexture2D/CompressedTexture2D::7888463271118400821::1751529244::1751529307::1::::<><><>0<>0<>f7b1aa61d9810123d761970d63c1edc5<>res://.godot/imported/white.jpg-1953fddd09d58a2f885e5c296dbe8f2f.ctex::
+::res://scenes/::1751531681
+hud_spell.tscn::PackedScene::2058815179745233957::1751531681::0::1::::<><><>0<>0<><>::uid://kr07gup5lggx::::res://scripts/spell_bar.gd<>uid://caomud01uxhsp::::res://scenes/spell_button.tscn
+player_1.tscn::PackedScene/PackedScene::6386273469172949443::1751529244::0::1::::<><><>0<>0<><>::uid://maubu7pvmybd::::res://assets/sprite.png<>uid://betbca4mehfeo::::res://scripts/Player1.gd
+spell_button.gd::GDScript/GDScript::7196367288420786067::1751531581::0::1::::<>TextureButton<><>0<>0<><>::
+spell_button.tscn::PackedScene/PackedScene::4802507173133455751::1751529244::0::1::::<><><>0<>0<><>::uid://dar8eahq8v2mx::::res://scenes/spell_button.gd<>uid://ke2owqauv5ud::::res://icon.svg<>uid://dknh3qhk1yql6::::res://assets/white.jpg
+stage.tscn::PackedScene/PackedScene::4668031879159593365::1751531645::0::1::::<><><>0<>0<><>::uid://bhq2k1vc4fqbo::::res://assets/Tileset_Cave.png<>uid://cw8s8xt6aoqhf::::res://scenes/player_1.tscn<>uid://4lkndko8xnkv::::res://scenes/hud_spell.tscn
+::res://scripts/::1751531681
+hud_spell.gd::GDScript::1545658765927250772::1751529244::0::1::::<>Control<><>0<>0<><>::
+Player1.gd::GDScript/GDScript::2706463569503122146::1751529244::0::1::::<>CharacterBody2D<><>0<>0<><>::
+spell_bar.gd::GDScript::738558275181708435::1751531581::0::1::::<>Control<><>0<>0<><>::

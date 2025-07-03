@@ -1,0 +1,4 @@
+res://scenes/stage.tscn
+res://scenes/hud_spell.tscn
+res://spell_bar.gd
+res://scenes/spell_button.gd
