@@ -18,6 +18,13 @@ var change_key := "":
 		input_key.keycode = change_key.unicode_at(0)
 		shortcut.events = [input_key]
 
+var cooldown := 3.0:
+	set(value):
+		cooldown = value
+		timer.wait_time = value
+		if progress_bar:
+			progress_bar.max_value = value
+
 func _ready():
 	progress_bar.max_value = timer.wait_time
 	set_process(true)  # on veut que _process tourne

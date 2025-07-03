@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://b7rh2kk0vd1e4"]
+[gd_scene load_steps=7 format=4 uid="uid://b7rh2kk0vd1e4"]
 
 [ext_resource type="Texture2D" uid="uid://bhq2k1vc4fqbo" path="res://assets/Tileset_Cave.png" id="1_gi7kc"]
 [ext_resource type="PackedScene" uid="uid://cw8s8xt6aoqhf" path="res://scenes/player_1.tscn" id="2_kewym"]
 [ext_resource type="PackedScene" uid="uid://4lkndko8xnkv" path="res://scenes/hud_spell.tscn" id="3_kewym"]
+[ext_resource type="PackedScene" uid="uid://dlvqrqvlu8icu" path="res://scenes/enemy.tscn" id="4_6c5u0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6c5u0"]
 texture = ExtResource("1_gi7kc")
@@ -66,3 +67,7 @@ offset_bottom = 192.518
 scale = Vector2(1.19734, 1.17323)
 size_flags_horizontal = 8
 size_flags_vertical = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="enemy" parent="." instance=ExtResource("4_6c5u0")]
+position = Vector2(309.302, -8.26262)

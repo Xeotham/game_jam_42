@@ -31,6 +31,7 @@ offset_top = -40.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 1
 script = ExtResource("1_chyek")
 
 [node name="SpellButton" parent="SpellBar" instance=ExtResource("3_g7eet")]

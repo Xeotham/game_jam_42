@@ -1,2 +1,7 @@
+Node
+Sprite2D
+CollisionShape2D
+CharacterBody2D
+Node2D
 HBoxContainer
 Panel
