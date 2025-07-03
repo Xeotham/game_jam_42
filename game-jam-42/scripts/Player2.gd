@@ -17,6 +17,7 @@ func _ready() -> void:
 	if multiplayer.get_unique_id() != 1:
 		$PointLight2D.hide()
 		camera.make_current()
+		$HUDspell.show()
 
 func get_input_axis():
 	axis.x = int(Input.is_action_pressed("Player2_move_right")) - int(Input.is_action_pressed("Player2_move_left"))

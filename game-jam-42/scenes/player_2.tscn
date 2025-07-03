@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bichfvcwo7cre"]
+[gd_scene load_steps=7 format=3 uid="uid://bichfvcwo7cre"]
 
 [ext_resource type="Script" uid="uid://dtrlq1ayfaqx3" path="res://scripts/Player2.gd" id="1_s551d"]
 [ext_resource type="Texture2D" uid="uid://4w57sm6f8wgy" path="res://assets/Player2.png" id="2_s551d"]
 [ext_resource type="Texture2D" uid="uid://dju6qqtba67m5" path="res://assets/light.png" id="3_yjax8"]
+[ext_resource type="PackedScene" uid="uid://4lkndko8xnkv" path="res://scenes/hud_spell.tscn" id="4_oc1kf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gneq0"]
 size = Vector2(6, 7)
@@ -30,9 +31,17 @@ texture = ExtResource("2_s551d")
 zoom = Vector2(2.5, 2.5)
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
+position = Vector2(16, 9)
 scale = Vector2(9.86047, 8.09375)
 shadow_enabled = true
 texture = ExtResource("3_yjax8")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="CharacterBody2D"]
 replication_config = SubResource("SceneReplicationConfig_s551d")
+
+[node name="HUDspell" parent="CharacterBody2D" instance=ExtResource("4_oc1kf")]
+visible = false
+offset_left = -105.0
+offset_top = -101.0
+offset_right = -105.0
+offset_bottom = -101.0

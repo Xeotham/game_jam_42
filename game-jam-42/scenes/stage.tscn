@@ -10,7 +10,7 @@ script = ExtResource("1_6c5u0")
 PlayerScene = ExtResource("2_kewym")
 
 [node name="BackgroundC" type="Sprite2D" parent="."]
-position = Vector2(99, -81)
+position = Vector2(102, -84)
 texture = ExtResource("3_6c5u0")
 
 [node name="Room1" parent="." instance=ExtResource("3_kewym")]
@@ -19,5 +19,4 @@ texture = ExtResource("3_6c5u0")
 position = Vector2(18, -32)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0768358, 0.0768358, 0.0768358, 1)
