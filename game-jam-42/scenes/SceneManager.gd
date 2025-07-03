@@ -12,11 +12,9 @@ func _ready() -> void:
 	
 	player1.global_position = $Spawn.global_position
 	player2.global_position = $Spawn.global_position
-	#for i in GameManager.Players:
-		#var currentPlayer = PlayerScene.instantiate()
-		#add_child(currentPlayer)
-		#currentPlayer.global_position = $Spawn.global_position
 	
+	if multiplayer.get_unique_id() != 1:
+		$CanvasModulate.hide()
 	pass # Replace with function body.
 
 

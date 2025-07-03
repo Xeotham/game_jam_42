@@ -15,6 +15,7 @@ func _ready() -> void:
 			playerId = i
 	$MultiplayerSynchronizer.set_multiplayer_authority(playerId)
 	if multiplayer.get_unique_id() != 1:
+		$PointLight2D.hide()
 		camera.make_current()
 
 func get_input_axis():
