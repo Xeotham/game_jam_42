@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw8s8xt6aoqhf"]
+[gd_scene load_steps=5 format=3 uid="uid://cw8s8xt6aoqhf"]
 
-[ext_resource type="Texture2D" uid="uid://maubu7pvmybd" path="res://assets/sprite.png" id="1_rfmnd"]
+[ext_resource type="Texture2D" uid="uid://3qrix6phrsrd" path="res://assets/Player1.png" id="2_f7tsm"]
 [ext_resource type="Script" uid="uid://betbca4mehfeo" path="res://scripts/Player1.gd" id="2_gneq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gneq0"]
-size = Vector2(34, 47)
+size = Vector2(24, 47)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_gneq0"]
+properties/0/path = NodePath("CharacterBody2D:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+<<<<<<< HEAD:scenes/player_1.tscn
 [node name="Player1" type="CharacterBody2D"]
 script = ExtResource("2_gneq0")
 
@@ -15,3 +21,25 @@ shape = SubResource("RectangleShape2D_gneq0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_rfmnd")
+=======
+[node name="Player1" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("2_gneq0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_gneq0")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_f7tsm")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(2.5, 2.5)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="CharacterBody2D"]
+root_path = NodePath("../..")
+replication_config = SubResource("SceneReplicationConfig_gneq0")
+>>>>>>> main:game-jam-42/scenes/player_1.tscn
