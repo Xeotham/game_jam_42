@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw8s8xt6aoqhf"]
+[gd_scene load_steps=6 format=3 uid="uid://cw8s8xt6aoqhf"]
 
 [ext_resource type="Texture2D" uid="uid://3qrix6phrsrd" path="res://assets/Player1.png" id="2_f7tsm"]
 [ext_resource type="Script" uid="uid://betbca4mehfeo" path="res://scripts/Player1.gd" id="2_gneq0"]
+[ext_resource type="Script" path="res://scenes/health.gd" id="3_f7tsm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gneq0"]
 height = 46.0
@@ -30,8 +31,19 @@ zoom = Vector2(2.5, 2.5)
 limit_left = -480
 limit_right = 690
 limit_bottom = 250
+limit_smoothed = true
 editor_draw_limits = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="CharacterBody2D"]
 root_path = NodePath("../..")
 replication_config = SubResource("SceneReplicationConfig_gneq0")
+
+[node name="Health" type="ProgressBar" parent="CharacterBody2D"]
+offset_right = 4.0
+offset_bottom = 27.0
+script = ExtResource("3_f7tsm")
+
+[node name="Label" type="Label" parent="CharacterBody2D/Health"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

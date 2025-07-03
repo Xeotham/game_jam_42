@@ -13,8 +13,15 @@ func _ready() -> void:
 	player1.global_position = $Spawn.global_position
 	player2.global_position = $Spawn.global_position
 	
+	var enemy = load("res://scenes/enemy.tscn").instantiate()
+	add_child(enemy)
+	enemy.set_player(player1)
+	
+	enemy.global_position = $Enemy.global_position
+	
 	if multiplayer.get_unique_id() != 1:
 		$CanvasModulate.hide()
+		#$CanvasModulate2.hide()
 	pass # Replace with function body.
 
 

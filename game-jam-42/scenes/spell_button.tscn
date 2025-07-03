@@ -5,21 +5,23 @@
 [ext_resource type="Texture2D" uid="uid://dknh3qhk1yql6" path="res://assets/white.jpg" id="2_3ts4b"]
 
 [node name="SpellButton" type="TextureButton"]
-custom_minimum_size = Vector2(40, 0)
-offset_right = 40.0
-offset_bottom = 40.0
+custom_minimum_size = Vector2(18, 18)
+offset_right = 10.0
+offset_bottom = 11.0
 texture_normal = ExtResource("1_w2jb8")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("1_7gnya")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.179278, 0.27547)
+offset_right = 84.0
+offset_bottom = 54.0
+scale = Vector2(0.21358, 0.333084)
 step = 0.05
 fill_mode = 5
+nine_patch_stretch = true
 texture_progress = ExtResource("2_3ts4b")
 tint_progress = Color(0.101961, 0.101961, 0.101961, 0.905882)
 
@@ -34,12 +36,12 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -23.0
+offset_left = -15.0
+offset_top = -15.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 5
 horizontal_alignment = 2
 vertical_alignment = 2
 
@@ -48,11 +50,11 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 40.0
+offset_top = -15.0
+offset_right = 15.0
 grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 7
 vertical_alignment = 2
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

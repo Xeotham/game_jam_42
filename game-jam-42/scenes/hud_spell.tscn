@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://4lkndko8xnkv"]
+[gd_scene load_steps=7 format=3 uid="uid://4lkndko8xnkv"]
 
 [ext_resource type="Script" uid="uid://kr07gup5lggx" path="res://scripts/spell_bar.gd" id="1_chyek"]
 [ext_resource type="PackedScene" uid="uid://caomud01uxhsp" path="res://scenes/spell_button.tscn" id="3_g7eet"]
+[ext_resource type="Texture2D" uid="uid://bek8l1x405lqo" path="res://assets/spell_heal.png" id="3_woe7e"]
+[ext_resource type="Texture2D" uid="uid://g26i3dsu5vkq" path="res://assets/spell_sonar.png" id="4_g7eet"]
+[ext_resource type="Texture2D" uid="uid://4flmdaxv3xca" path="res://assets/spell_light.png" id="5_mdtbl"]
+[ext_resource type="Texture2D" uid="uid://bs1l2r8lq82i2" path="res://assets/spell_pin.png" id="6_6lakp"]
 
 [node name="HUDspell" type="Control"]
 layout_mode = 3
@@ -16,32 +20,41 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SpellBar" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_left = -93.0
+offset_top = -15.0
+offset_right = -38.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 1
+theme_override_constants/separation = 5
 script = ExtResource("1_chyek")
 
 [node name="SpellButton" parent="SpellBar" instance=ExtResource("3_g7eet")]
 layout_mode = 2
+texture_normal = ExtResource("3_woe7e")
 
 [node name="SpellButton2" parent="SpellBar" instance=ExtResource("3_g7eet")]
 layout_mode = 2
+texture_normal = ExtResource("4_g7eet")
 
 [node name="SpellButton3" parent="SpellBar" instance=ExtResource("3_g7eet")]
 layout_mode = 2
+texture_normal = ExtResource("5_mdtbl")
 
 [node name="SpellButton4" parent="SpellBar" instance=ExtResource("3_g7eet")]
 layout_mode = 2
+texture_normal = ExtResource("6_6lakp")

@@ -5,10 +5,14 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 
 var jump_count = 0
-var jump_total = 2
+var jump_total = 1
 var air_time = 0
 
 @onready var camera = $Camera2D as Camera2D
+@onready var Health = $Health
+
+var MaxHealth = 150
+var health = 50
 
 func _ready() -> void:
 	$MultiplayerSynchronizer.set_multiplayer_authority(1)
@@ -44,3 +48,11 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 		move_and_slide()
+
+func take_damage(amount: int):
+	health -= amount
+	if health < 0: health = 0
+	Health.change_health(-amount)
+
+func die():
+	queue_free()
