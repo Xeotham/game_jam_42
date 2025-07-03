@@ -1,0 +1,130 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxbovkn1xd4aa"]
+
+[ext_resource type="Script" uid="uid://bsnfn3tcno07" path="res://scripts/startWire.gd" id="2_fs8j7"]
+[ext_resource type="PackedScene" uid="uid://1jocmrp1gb8g" path="res://scenes/i_tile.tscn" id="3_cnsrb"]
+[ext_resource type="Script" uid="uid://cipxqs3m63cvg" path="res://scripts/endWire.gd" id="3_fs8j7"]
+[ext_resource type="Texture2D" uid="uid://c0evoc3xym1q8" path="res://assets/puzzle/puzzle_00_wired.png" id="3_ghsqg"]
+[ext_resource type="Texture2D" uid="uid://i6bh56d6yr8b" path="res://assets/puzzle/puzzle_02.png" id="4_fs8j7"]
+[ext_resource type="PackedScene" uid="uid://4cpt0ljx31kh" path="res://scenes/L_tile.tscn" id="4_wuo53"]
+
+[sub_resource type="GDScript" id="GDScript_ghsqg"]
+script/source = "extends Node2D
+
+var mouse = false
+var tiles = []
+var wired = true
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	start_game()
+	pass # Replace with function body.
+
+
+func start_game():
+	tiles = [$PuzzleTiles/Tile1, $PuzzleTiles/Tile2, $PuzzleTiles/Tile3, $PuzzleTiles/Tile4, $PuzzleTiles/Tile5, $PuzzleTiles/Tile6, $PuzzleTiles/Tile7, $PuzzleTiles/Tile8, $PuzzleTiles/Tile9, $PuzzleTiles/Tile10, $PuzzleTiles/Tile11, $PuzzleTiles/Tile12, $PuzzleTiles/Tile13, $PuzzleTiles/Tile14, $PuzzleTiles/Tile15, $PuzzleTiles/Tile16]
+	pass
+
+func check_wire():
+	pass
+
+func _input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		mouse = event
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and mouse:
+		var mouse_copy = mouse
+		mouse = false
+		check_wire()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osd2q"]
+size = Vector2(4, 13)
+
+[node name="PuzzleGame" type="Node2D"]
+script = SubResource("GDScript_ghsqg")
+
+[node name="Start" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("2_fs8j7")
+
+[node name="Texture" type="Sprite2D" parent="Start"]
+position = Vector2(32, 161)
+texture = ExtResource("3_ghsqg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
+position = Vector2(64, 160.5)
+shape = SubResource("RectangleShape2D_osd2q")
+
+[node name="Finish" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("3_fs8j7")
+
+[node name="Texture" type="Sprite2D" parent="Finish"]
+position = Vector2(352, 33)
+texture = ExtResource("4_fs8j7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
+position = Vector2(320, 33.5)
+shape = SubResource("RectangleShape2D_osd2q")
+
+[node name="Tile1" parent="." instance=ExtResource("3_cnsrb")]
+position = Vector2(96, 33)
+
+[node name="Tile2" parent="." instance=ExtResource("4_wuo53")]
+position = Vector2(160, 33)
+
+[node name="Tile3" parent="." instance=ExtResource("3_cnsrb")]
+position = Vector2(224, 33)
+
+[node name="Tile4" parent="." instance=ExtResource("4_wuo53")]
+position = Vector2(288, 33)
+rotation = 1.5708
+
+[node name="Tile5" parent="." instance=ExtResource("4_wuo53")]
+position = Vector2(96, 97)
+
+[node name="Tile6" parent="." instance=ExtResource("3_cnsrb")]
+position = Vector2(160, 97)
+
+[node name="Tile7" parent="." instance=ExtResource("3_cnsrb")]
+position = Vector2(224, 97)
+
+[node name="Tile8" parent="." instance=ExtResource("3_cnsrb")]
+position = Vector2(288, 97)
+rotation = 1.5708
+
+[node name="Tile9" parent="." instance=ExtResource("4_wuo53")]
+position = Vector2(96, 161)
+
+[node name="Tile10" parent="." instance=ExtResource("3_cnsrb")]
+position = Vector2(160, 161)
+
+[node name="Tile11" parent="." instance=ExtResource("4_wuo53")]
+position = Vector2(224, 161)
+rotation = 1.5708
+
+[node name="Tile12" parent="." instance=ExtResource("4_wuo53")]
+position = Vector2(288, 161)
+rotation = -1.5708
+
+[node name="Tile13" parent="." instance=ExtResource("4_wuo53")]
+position = Vector2(96, 225)
+
+[node name="Tile14" parent="." instance=ExtResource("3_cnsrb")]
+position = Vector2(160, 225)
+
+[node name="Tile15" parent="." instance=ExtResource("4_wuo53")]
+position = Vector2(224, 225)
+rotation = -1.5708
+
+[node name="Tile16" parent="." instance=ExtResource("3_cnsrb")]
+position = Vector2(288, 225)
+
+[connection signal="area_entered" from="Start" to="Start" method="_on_area_entered"]
+[connection signal="area_exited" from="Start" to="Start" method="_on_area_exited"]
+[connection signal="area_entered" from="Finish" to="Finish" method="_on_area_entered"]
+[connection signal="area_exited" from="Finish" to="Finish" method="_on_area_exited"]

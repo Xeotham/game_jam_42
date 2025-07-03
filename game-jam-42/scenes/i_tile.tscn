@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://1jocmrp1gb8g"]
+
+[ext_resource type="Script" uid="uid://d1x4fugtexebp" path="res://scripts/rotate_tile.gd" id="1_16evy"]
+[ext_resource type="Texture2D" uid="uid://bcow5o25kdf5n" path="res://assets/puzzle/puzzle_00.png" id="2_16evy"]
+[ext_resource type="Script" uid="uid://wyi51bx484ka" path="res://scripts/I_puzzle_entrypoint.gd" id="3_16evy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4o3s"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjoq1"]
+size = Vector2(2, 13)
+
+[node name="ITile" type="Area2D"]
+collision_layer = 32896
+collision_mask = 32896
+script = ExtResource("1_16evy")
+
+[node name="Puzzle00" type="Sprite2D" parent="."]
+texture = ExtResource("2_16evy")
+
+[node name="Rotate" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y4o3s")
+
+[node name="Entrypoint" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("3_16evy")
+
+[node name="Entry1" type="CollisionShape2D" parent="Entrypoint"]
+position = Vector2(-32, 0.5)
+shape = SubResource("RectangleShape2D_pjoq1")
+
+[node name="Entry2" type="CollisionShape2D" parent="Entrypoint"]
+position = Vector2(32, 0.5)
+shape = SubResource("RectangleShape2D_pjoq1")
+
+[connection signal="area_entered" from="Entrypoint" to="Entrypoint" method="_on_area_entered"]
+[connection signal="area_exited" from="Entrypoint" to="Entrypoint" method="_on_area_exited"]
