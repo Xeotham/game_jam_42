@@ -49,6 +49,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		actual_position = velocity
 		move_and_slide()
+		
+		_animations()
 
 func take_damage(amount: int):
 	health -= amount
@@ -57,3 +59,9 @@ func take_damage(amount: int):
 
 func die():
 	queue_free()
+	
+func _animations():
+	if velocity.x < 0:
+		$Sprite2D.flip_h = true
+	if velocity.x > 0:
+		$Sprite2D.flip_h = false
