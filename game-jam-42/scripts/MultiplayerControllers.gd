@@ -63,6 +63,7 @@ func _on_host_button_down() -> void:
 	multiplayer.set_multiplayer_peer(peer)
 	print("Waiting for players!")
 	sendPlayerInformation(multiplayer.get_unique_id())
+	
 
 
 

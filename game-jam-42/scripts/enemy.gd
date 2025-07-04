@@ -25,13 +25,18 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func detect_player(delta):
-	print("Player position: ", player.global_position)
 	if FOLLOW_PLAYER and player and is_instance_valid(player):
 		var direction = player.global_position - global_position
 		if direction.length() < DETECTION_RADIUS:
+			sprite.play("agro")
 			velocity.x = direction.normalized().x * SPEED
-			print("Player detected")
+	if !player:
+		sprite.play("idle")
 	velocity.x = move_toward(velocity.x, 0, SPEED * delta)
+	if velocity.x < 0:
+		sprite.flip_h = true
+	if velocity.x > 0:
+		sprite.flip_h = false
 		
 
 func take_damage(amount: int):
@@ -43,7 +48,6 @@ func die():
 	queue_free()
 
 func set_player(p: Node2D):
-	print("Setting Player ", p.name)
 	player = p
 	
 func _animations():

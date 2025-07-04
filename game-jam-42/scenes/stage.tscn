@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=4 uid="uid://b7rh2kk0vd1e4"]
 
-[ext_resource type="Script" uid="uid://b1kir5bkisieo" path="res://scenes/SceneManager.gd" id="1_6c5u0"]
+[ext_resource type="Script" uid="uid://b1kir5bkisieo" path="res://scripts/SceneManager.gd" id="1_6c5u0"]
 [ext_resource type="PackedScene" uid="uid://cw8s8xt6aoqhf" path="res://scenes/player_1.tscn" id="2_kewym"]
 [ext_resource type="Texture2D" uid="uid://3ie77dmj1nr5" path="res://assets/background1.png" id="3_2so7o"]
 [ext_resource type="Texture2D" uid="uid://bbhon0pfxt2lx" path="res://assets/background2.png" id="4_st0q7"]
@@ -13886,7 +13886,6 @@ sources/0 = SubResource("TileSetAtlasSource_t30jk")
 [node name="Stage" type="Node2D"]
 position = Vector2(33, 150)
 script = ExtResource("1_6c5u0")
-PlayerScene = ExtResource("2_kewym")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -1
