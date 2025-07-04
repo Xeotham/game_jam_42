@@ -157,6 +157,7 @@ animations = [{
 size = Vector2(182, 48)
 
 [node name="EnemyBody" type="CharacterBody2D"]
+collision_layer = 8
 script = ExtResource("1_md0e3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -169,7 +170,7 @@ animation = &"idle"
 frame_progress = 0.371223
 
 [node name="DetectionArea" type="Area2D" parent="."]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 6
 script = ExtResource("5_c4w8v")
 

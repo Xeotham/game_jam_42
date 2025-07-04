@@ -15,7 +15,6 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	print(body.global_position)
 	agro = body
 	pass # Replace with function body.
 

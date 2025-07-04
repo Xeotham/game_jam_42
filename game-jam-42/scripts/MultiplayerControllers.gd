@@ -44,8 +44,7 @@ func sendPlayerInformation(id):
 		}
 	if multiplayer.is_server():
 		for i in GameManager.Players:
-			if GameManager.Players[i].id != multiplayer.get_unique_id():
-				sendPlayerInformation.rpc(GameManager.Players[i].id)
+			sendPlayerInformation.rpc(GameManager.Players[i].id)
 
 @rpc("any_peer", "call_local")
 func startGame():
