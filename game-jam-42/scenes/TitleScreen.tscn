@@ -37,6 +37,23 @@ offset_right = 449.0
 offset_bottom = 46.0
 text = "Start Game"
 
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 88.0
+offset_right = 398.0
+offset_bottom = 123.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 87.0
+offset_right = 185.0
+offset_bottom = 120.0
+text = "IP Addr:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="button_down" from="Host" to="." method="_on_host_button_down"]
 [connection signal="button_down" from="Join" to="." method="_on_join_button_down"]
 [connection signal="button_down" from="StartGame" to="." method="_on_start_game_button_down"]

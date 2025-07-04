@@ -13927,7 +13927,6 @@ tile_map_data = PackedByteArray("AADg/wAAAQAbADsAAADg/wEAAQAbADwAAADg/wIAAQAbAD0
 tile_set = SubResource("TileSet_5sts7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground"]
-visible = false
 modulate = Color(0, 0, 0, 1)
 color = Color(0, 0, 0, 1)
 
@@ -13955,15 +13954,14 @@ tile_map_data = PackedByteArray("AAD1//3/AgAaACUAAAD7//3/AgAEADAAAAD5////AgAvAAY
 tile_set = SubResource("TileSet_e38vs")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 modulate = Color(0, 0, 0, 1)
 color = Color(0, 0, 0, 1)
 
 [node name="Player1" parent="." instance=ExtResource("2_kewym")]
-position = Vector2(-298, -28)
+position = Vector2(-425, 7)
 
 [node name="Player2" parent="." instance=ExtResource("11_0hg5s")]
-position = Vector2(-392, -9)
+position = Vector2(-399, -15)
 
 [node name="Enemys" type="Node2D" parent="."]
 

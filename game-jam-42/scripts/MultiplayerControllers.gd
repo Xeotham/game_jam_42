@@ -53,13 +53,13 @@ func startGame():
 	self.hide()
 
 func _on_host_button_down() -> void:
+	Address = "0.0.0.0"
 	peer = ENetMultiplayerPeer.new()
 	var error = peer.create_server(port, 2)
 	if error != OK:
 		print("Cannot host: ", error)
 		return
 	peer.get_host().compress(ENetConnection.COMPRESS_NONE)
-	
 	multiplayer.set_multiplayer_peer(peer)
 	print("Waiting for players!")
 	sendPlayerInformation(multiplayer.get_unique_id())
@@ -70,7 +70,7 @@ func _on_host_button_down() -> void:
 func _on_join_button_down() -> void:
 	peer = ENetMultiplayerPeer.new()
 	# Maybe add input to enter the ip address
-	peer.create_client(Address, port)
+	peer.create_client($TextEdit.text, port)
 	peer.get_host().compress(ENetConnection.COMPRESS_NONE)
 	multiplayer.set_multiplayer_peer(peer);
 
