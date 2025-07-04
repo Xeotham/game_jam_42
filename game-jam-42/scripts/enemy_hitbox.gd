@@ -15,7 +15,6 @@ func _process(delta: float) -> void:
 	enemy_body.set_hit(hit)
 
 func _on_body_entered(body: Node2D) -> void:
-	print("Player entered Hitbox")
 	sprite.stop()
 	hit = true
 	enemy_body.set_hit(true)

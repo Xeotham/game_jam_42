@@ -28,7 +28,6 @@ func _physics_process(delta: float) -> void:
 func detect_player(delta):
 	if FOLLOW_PLAYER and player and is_instance_valid(player):
 		var direction = player.global_position - global_position
-		print("Hit ", hit)
 		if direction.length() < DETECTION_RADIUS:
 			if hit:
 				sprite.play("attack")
