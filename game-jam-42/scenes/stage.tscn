@@ -13954,6 +13954,7 @@ tile_map_data = PackedByteArray("AAD1//3/AgAaACUAAAD7//3/AgAEADAAAAD5////AgAvAAY
 tile_set = SubResource("TileSet_e38vs")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 modulate = Color(0, 0, 0, 1)
 color = Color(0, 0, 0, 1)
 
@@ -13967,3 +13968,9 @@ position = Vector2(-399, -15)
 
 [node name="Enemy1" parent="Enemys" instance=ExtResource("12_jl6nj")]
 position = Vector2(205, -237)
+
+[node name="Invisible Enemys" type="Node2D" parent="."]
+
+[node name="EnemyBody" parent="Invisible Enemys" instance=ExtResource("12_jl6nj")]
+visible = false
+position = Vector2(-186, -665)

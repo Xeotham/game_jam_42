@@ -27,6 +27,7 @@ func _ready() -> void:
 	if multiplayer.get_unique_id() != 1:
 		$CanvasModulate.hide()
 		$ParallaxBackground/CanvasModulate.hide()
+		$"Invisible Enemys/EnemyBody".show()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
