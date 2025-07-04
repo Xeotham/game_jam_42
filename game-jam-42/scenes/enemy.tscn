@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://dlvqrqvlu8icu"]
+[gd_scene load_steps=29 format=3 uid="uid://dlvqrqvlu8icu"]
 
 [ext_resource type="Script" uid="uid://dons7pjkod11e" path="res://scripts/enemy.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://dwoeepk84glin" path="res://assets/enemy/enemy_aggro.png" id="2_5uy6h"]
 [ext_resource type="Texture2D" uid="uid://cllomvyjoa67r" path="res://assets/enemy/enemy_attack.png" id="3_c4w8v"]
 [ext_resource type="Texture2D" uid="uid://h2kheglhwxmd" path="res://assets/enemy/enemy_idle.png" id="4_xwavj"]
 [ext_resource type="Script" uid="uid://c5q0fhd82bdoq" path="res://scripts/enemy_detection_area.gd" id="5_c4w8v"]
+[ext_resource type="Script" uid="uid://ddgucp2c46ptg" path="res://scripts/enemy_hitbox.gd" id="6_xwavj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
 size = Vector2(36, 48)
@@ -156,6 +157,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uy6h"]
 size = Vector2(182, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nenq2"]
+size = Vector2(43, 51)
+
 [node name="EnemyBody" type="CharacterBody2D"]
 collision_layer = 8
 script = ExtResource("1_md0e3")
@@ -166,8 +170,8 @@ shape = SubResource("RectangleShape2D_md0e3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i4rgx")
-animation = &"idle"
-frame_progress = 0.371223
+animation = &"attack"
+frame_progress = 0.776592
 
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -178,5 +182,17 @@ script = ExtResource("5_c4w8v")
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_5uy6h")
 
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("6_xwavj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_nenq2")
+
 [connection signal="body_entered" from="DetectionArea" to="DetectionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="DetectionArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="body_exited" from="Hitbox" to="Hitbox" method="_on_body_exited"]

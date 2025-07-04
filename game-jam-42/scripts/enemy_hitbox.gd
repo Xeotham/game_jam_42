@@ -2,7 +2,8 @@ extends Area2D
 
 @onready var enemy_body = $".." as Ennemy
 @onready var sprite = $"../AnimatedSprite2D"
-var agro = null
+
+var hit = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,15 +12,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	enemy_body.set_player(agro)
-
+	enemy_body.set_hit(hit)
 
 func _on_body_entered(body: Node2D) -> void:
-	agro = body
-	pass # Replace with function body.
+	print("Player entered Hitbox")
+	sprite.stop()
+	hit = true
+	enemy_body.set_hit(true)
 
 
 func _on_body_exited(body: Node2D) -> void:
-	agro = null
-	sprite.play("idle")
-	pass # Replace with function body.
+	sprite.play("agro")
+	hit = false
+	enemy_body.set_hit(false)

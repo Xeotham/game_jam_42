@@ -7,6 +7,7 @@ class_name Ennemy
 @export var FOLLOW_PLAYER = true
 @export var DETECTION_RADIUS = 200.0
 
+@export var hit = false
 var player: Node2D = GameManager.sprite1
 @onready var sprite = $AnimatedSprite2D
 
@@ -27,8 +28,12 @@ func _physics_process(delta: float) -> void:
 func detect_player(delta):
 	if FOLLOW_PLAYER and player and is_instance_valid(player):
 		var direction = player.global_position - global_position
+		print("Hit ", hit)
 		if direction.length() < DETECTION_RADIUS:
-			sprite.play("agro")
+			if hit:
+				sprite.play("attack")
+			else:
+				sprite.play("agro")
 			velocity.x = direction.normalized().x * SPEED
 	if !player:
 		sprite.play("idle")
@@ -49,6 +54,9 @@ func die():
 
 func set_player(p: Node2D):
 	player = p
+	
+func set_hit(new_hit: bool):
+	hit = new_hit
 	
 func _animations():
 	sprite.play("idle")
