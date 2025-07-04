@@ -13954,7 +13954,6 @@ tile_map_data = PackedByteArray("AAD1//3/AgAaACUAAAD7//3/AgAEADAAAAD5////AgAvAAY
 tile_set = SubResource("TileSet_e38vs")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 modulate = Color(0, 0, 0, 1)
 color = Color(0, 0, 0, 1)
 
