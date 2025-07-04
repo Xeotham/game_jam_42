@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -300.0
 var jump_count = 0
 var jump_total = 1
 var air_time = 0
+var actual_position = Vector2.ZERO
 
 @onready var camera = $Camera2D as Camera2D
 @onready var Health = $Health
@@ -46,7 +47,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		actual_position = velocity
 		move_and_slide()
 
 func take_damage(amount: int):

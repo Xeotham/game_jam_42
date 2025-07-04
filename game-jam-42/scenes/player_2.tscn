@@ -114,7 +114,7 @@ shape = SubResource("RectangleShape2D_gneq0")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_jbo5h")
 animation = &"idle"
-frame_progress = 0.555715
+frame_progress = 0.198991
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(2.5, 2.5)
@@ -129,6 +129,8 @@ light_mask = 3
 z_index = -175
 position = Vector2(1, 9.53674e-07)
 scale = Vector2(9.86047, 8.09375)
+range_layer_min = -512
+range_layer_max = 512
 shadow_enabled = true
 texture = ExtResource("3_yjax8")
 
