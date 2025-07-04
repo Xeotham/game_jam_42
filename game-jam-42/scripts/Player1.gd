@@ -5,7 +5,7 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 
 var jump_count = 0
-var jump_total = 1
+var jump_total = 2
 var air_time = 0
 var actual_position = Vector2.ZERO
 
