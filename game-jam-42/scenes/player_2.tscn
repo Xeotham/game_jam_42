@@ -1,16 +1,104 @@
-[gd_scene load_steps=6 format=3 uid="uid://bichfvcwo7cre"]
+[gd_scene load_steps=18 format=3 uid="uid://bichfvcwo7cre"]
 
 [ext_resource type="Script" uid="uid://dtrlq1ayfaqx3" path="res://scripts/Player2.gd" id="1_s551d"]
-[ext_resource type="Texture2D" uid="uid://4w57sm6f8wgy" path="res://assets/Player2.png" id="2_s551d"]
+[ext_resource type="Texture2D" uid="uid://qbbbwvgvgome" path="res://assets/support/support_idle.png" id="2_yjax8"]
 [ext_resource type="Texture2D" uid="uid://dju6qqtba67m5" path="res://assets/light.png" id="3_yjax8"]
+[ext_resource type="PackedScene" uid="uid://4lkndko8xnkv" path="res://scenes/hud_spell.tscn" id="4_oc1kf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gneq0"]
 size = Vector2(6, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oc1kf"]
+atlas = ExtResource("2_yjax8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mr0g"]
+atlas = ExtResource("2_yjax8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7tvf"]
+atlas = ExtResource("2_yjax8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_povjg"]
+atlas = ExtResource("2_yjax8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkoe6"]
+atlas = ExtResource("2_yjax8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne6jw"]
+atlas = ExtResource("2_yjax8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2c7a"]
+atlas = ExtResource("2_yjax8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4ukj"]
+atlas = ExtResource("2_yjax8")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4bc4"]
+atlas = ExtResource("2_yjax8")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtgcc"]
+atlas = ExtResource("2_yjax8")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbo5h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oc1kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mr0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7tvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_povjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkoe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne6jw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2c7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4ukj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4bc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtgcc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_s551d"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
+properties/1/path = NodePath("Sprite2D:animation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("Sprite2D:flip_h")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("Sprite2D:frame")
+properties/3/spawn = true
+properties/3/replication_mode = 1
 
 [node name="Player2" type="Node2D"]
 
@@ -20,19 +108,38 @@ collision_mask = 5
 script = ExtResource("1_s551d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(2, -2.5)
+position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_gneq0")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("2_s551d")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_jbo5h")
+animation = &"idle"
+frame_progress = 0.198991
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(2.5, 2.5)
+limit_left = -480
+limit_right = 690
+limit_bottom = 250
+limit_smoothed = true
+editor_draw_limits = true
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
+light_mask = 3
+z_index = -175
+position = Vector2(1, 9.53674e-07)
 scale = Vector2(9.86047, 8.09375)
+range_layer_min = -512
+range_layer_max = 512
 shadow_enabled = true
 texture = ExtResource("3_yjax8")
+
+[node name="HUDspell" parent="CharacterBody2D" instance=ExtResource("4_oc1kf")]
+visible = false
+offset_left = 66.0
+offset_top = -108.0
+offset_right = 66.0
+offset_bottom = -108.0
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="CharacterBody2D"]
 replication_config = SubResource("SceneReplicationConfig_s551d")

@@ -17,6 +17,7 @@ func _ready() -> void:
 	if multiplayer.get_unique_id() != 1:
 		$PointLight2D.hide()
 		camera.make_current()
+		$HUDspell.show()
 
 func get_input_axis():
 	axis.x = int(Input.is_action_pressed("Player2_move_right")) - int(Input.is_action_pressed("Player2_move_left"))
@@ -32,6 +33,7 @@ func move(delta):
 		apply_movement(axis * ACCELERATION * delta)
 		
 	move_and_slide()
+	_animations()
 
 func apply_friction(amount):
 	if velocity.length() > amount:
@@ -46,3 +48,13 @@ func apply_movement(accel):
 func _physics_process(delta: float) -> void:
 	if $MultiplayerSynchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
 		move(delta)
+
+func _animations():
+	$Sprite2D.play("idle")
+	
+	if velocity.x < 0:
+		$Sprite2D.flip_h = true
+	if velocity.x > 0:
+		$Sprite2D.flip_h = false
+	
+	

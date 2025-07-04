@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw8s8xt6aoqhf"]
+[gd_scene load_steps=6 format=3 uid="uid://cw8s8xt6aoqhf"]
 
 [ext_resource type="Texture2D" uid="uid://3qrix6phrsrd" path="res://assets/Player1.png" id="2_f7tsm"]
 [ext_resource type="Script" uid="uid://betbca4mehfeo" path="res://scripts/Player1.gd" id="2_gneq0"]
+[ext_resource type="Script" uid="uid://bws6774vqs40j" path="res://scenes/health.gd" id="3_f7tsm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gneq0"]
-size = Vector2(24, 47)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gneq0"]
+height = 46.0
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_gneq0"]
 properties/0/path = NodePath("CharacterBody2D:position")
@@ -19,15 +20,30 @@ collision_mask = 3
 script = ExtResource("2_gneq0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, -1.5)
-shape = SubResource("RectangleShape2D_gneq0")
+position = Vector2(1, -2)
+shape = SubResource("CapsuleShape2D_gneq0")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("2_f7tsm")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(2.5, 2.5)
+limit_left = -480
+limit_right = 690
+limit_bottom = 250
+limit_smoothed = true
+editor_draw_limits = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="CharacterBody2D"]
 root_path = NodePath("../..")
 replication_config = SubResource("SceneReplicationConfig_gneq0")
+
+[node name="Health" type="ProgressBar" parent="CharacterBody2D"]
+offset_right = 4.0
+offset_bottom = 27.0
+script = ExtResource("3_f7tsm")
+
+[node name="Label" type="Label" parent="CharacterBody2D/Health"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

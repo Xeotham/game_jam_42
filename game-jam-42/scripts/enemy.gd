@@ -1,14 +1,17 @@
 extends CharacterBody2D
+class_name Ennemy
 
-@export var speed: float = 150.0
-@export var health: int = 100
-@export var damage: int = 10
-@export var follow_player: bool = true
-@export var detection_radius: float = 200.0
+@export var SPEED = 150.0
+@export var HEALTH = 10
+@export var DAMAGE = 2
+@export var FOLLOW_PLAYER = true
+@export var DETECTION_RADIUS = 200.0
 
-@onready var player = $"../Player1"
+var player: Node2D = GameManager.sprite1
+@onready var sprite = $AnimatedSprite2D
 
 func _ready():
+	_animations()
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -17,22 +20,40 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	else:
 		velocity.y = 0
-	if follow_player and player and is_instance_valid(player):
-		var direction = player.global_position - global_position
-		if direction.length() < detection_radius:
-			velocity.x = direction.normalized().x * speed
-		else:
-			velocity.x = move_toward(velocity.x, 0, speed * delta)
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed * delta)
+	detect_player(delta)
 
 	move_and_slide()
 
+func detect_player(delta):
+	if FOLLOW_PLAYER and player and is_instance_valid(player):
+		var direction = player.global_position - global_position
+		if direction.length() < DETECTION_RADIUS:
+			sprite.play("agro")
+			velocity.x = direction.normalized().x * SPEED
+	if !player:
+		sprite.play("idle")
+	velocity.x = move_toward(velocity.x, 0, SPEED * delta)
+	if velocity.x < 0:
+		sprite.flip_h = true
+	if velocity.x > 0:
+		sprite.flip_h = false
+		
 
 func take_damage(amount: int):
-	health -= amount
-	if health <= 0:
+	HEALTH -= amount
+	if HEALTH <= 0:
 		die()
 
 func die():
 	queue_free()
+
+func set_player(p: Node2D):
+	player = p
+	
+func _animations():
+	sprite.play("idle")
+
+	if velocity.x < 0:
+		sprite.flip_h = true
+	if velocity.x > 0:
+		sprite.flip_h = false
